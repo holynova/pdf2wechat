@@ -9,6 +9,8 @@ export interface StitchConfig {
   splitCount: number;
   direction: 'vertical' | 'horizontal';
   quality: 'high' | 'normal';
+  gap: boolean;
+  border: boolean;
 }
 
 export interface ProcessingStatus {
@@ -49,7 +51,7 @@ export const processPDF = async (
 ): Promise<string[]> => {
   try {
     const totalPages = pdf.numPages;
-    const { splitCount, direction, quality } = config;
+    const { splitCount, direction, quality, gap, border } = config;
     
     // Calculate pages per group
     // Distribute pages as evenly as possible
@@ -76,6 +78,7 @@ export const processPDF = async (
     const scale = quality === 'high' ? 2 : 1.5;
     const format = quality === 'high' ? 'image/png' : 'image/jpeg';
     const qualityParam = quality === 'high' ? 1.0 : 0.8;
+    const gapSize = gap ? (quality === 'high' ? 40 : 20) : 0;
 
     for (let i = 0; i < groups.length; i++) {
       const groupPages = groups[i];
@@ -106,7 +109,7 @@ export const processPDF = async (
 
       if (direction === 'vertical') {
         const maxWidth = Math.max(...pageCanvases.map(c => c.width));
-        const totalHeight = pageCanvases.reduce((sum, c) => sum + c.height, 0);
+        const totalHeight = pageCanvases.reduce((sum, c) => sum + c.height, 0) + (pageCanvases.length - 1) * gapSize;
         
         stitchedCanvas.width = maxWidth;
         stitchedCanvas.height = totalHeight;
@@ -120,11 +123,18 @@ export const processPDF = async (
           // Center horizontally if widths differ
           const x = (maxWidth - canvas.width) / 2;
           ctx.drawImage(canvas, x, currentY);
-          currentY += canvas.height;
+          
+          if (border) {
+            ctx.strokeStyle = '#e5e7eb'; // gray-200
+            ctx.lineWidth = quality === 'high' ? 4 : 2;
+            ctx.strokeRect(x, currentY, canvas.width, canvas.height);
+          }
+
+          currentY += canvas.height + gapSize;
         }
       } else {
         const maxHeight = Math.max(...pageCanvases.map(c => c.height));
-        const totalWidth = pageCanvases.reduce((sum, c) => sum + c.width, 0);
+        const totalWidth = pageCanvases.reduce((sum, c) => sum + c.width, 0) + (pageCanvases.length - 1) * gapSize;
         
         stitchedCanvas.width = totalWidth;
         stitchedCanvas.height = maxHeight;
@@ -137,7 +147,14 @@ export const processPDF = async (
           // Center vertically if heights differ
           const y = (maxHeight - canvas.height) / 2;
           ctx.drawImage(canvas, currentX, y);
-          currentX += canvas.width;
+
+          if (border) {
+            ctx.strokeStyle = '#e5e7eb'; // gray-200
+            ctx.lineWidth = quality === 'high' ? 4 : 2;
+            ctx.strokeRect(currentX, y, canvas.width, canvas.height);
+          }
+
+          currentX += canvas.width + gapSize;
         }
       }
 

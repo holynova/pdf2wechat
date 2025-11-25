@@ -10,6 +10,6 @@
 
 # 技术栈
 1. 用纯前端的方式解决, 不用后端
-2. react+ts+pnpm+vite
+2. react+ts+pnpm+vite+tailwindcss+shadcnui
 
 
