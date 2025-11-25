@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# PDF Stitcher / PDF 拼图工具
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pure Frontend PDF to Long Image Converter**
+**纯前端 PDF 转长图工具**
 
-Currently, two official plugins are available:
+## 🇨🇳 中文介绍
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+无需上传文件到服务器，完全在浏览器本地运行，安全快速。
 
-## React Compiler
+**核心功能：**
+- 🖼️ **智能拼接**：自定义切分数量，支持垂直/水平拼接
+- 🎨 **样式调整**：支持添加间距和边框
+- ⚡ **即时预览**：所见即所得，支持点击查看大图
+- 📦 **一键打包**：生成高清图片并打包下载
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![界面预览](snap_cn.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🇺🇸 English Introduction
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Secure and fast PDF to long image converter running entirely in your browser. No server upload required.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Key Features:**
+- 🖼️ **Smart Stitching**: Custom split count, vertical/horizontal stitching
+- 🎨 **Style Options**: Adjustable gaps and borders
+- ⚡ **Instant Preview**: Real-time preview with zoom capability
+- 📦 **Batch Export**: Generate high-quality images and download as ZIP
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![Interface Preview](snap_en.png)
