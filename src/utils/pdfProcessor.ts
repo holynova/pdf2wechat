@@ -2,7 +2,8 @@ import * as pdfjsLib from 'pdfjs-dist';
 import JSZip from 'jszip';
 
 // Initialize PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+import pdfWorker from 'pdfjs-dist/build/pdf.worker?url';
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export interface StitchConfig {
   splitCount: number;
