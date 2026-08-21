@@ -1,5 +1,9 @@
 # PDF Stitcher / PDF 拼图工具
 
+
+![Screenshot](./screenshot.png)
+
+
 **Pure Frontend PDF to Long Image Converter**
 **纯前端 PDF 转长图工具**
 
