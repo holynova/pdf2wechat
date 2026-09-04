@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "pnpm run build && node scripts/sync-pages-artifact.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

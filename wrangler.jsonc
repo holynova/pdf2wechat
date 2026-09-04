@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pdf2wechat",
+  "compatibility_date": "2026-09-04",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    {
+      "pattern": "pdf2wechat.xiaosang.cc",
+      "custom_domain": true
+    }
+  ]
+}

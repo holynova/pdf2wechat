@@ -1,5 +1,7 @@
 # PDF Stitcher / PDF 拼图工具
 
+Cloudflare：<https://pdf2wechat.xiaosang.cc/> · GitHub Pages：<https://holynova.github.io/pdf2wechat/>
+
 
 ![Screenshot](./screenshot.png)
 
