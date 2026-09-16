@@ -7,6 +7,11 @@
 **Pure Frontend PDF to Long Image Converter**
 **纯前端 PDF 转长图工具**
 
+<p align="center">
+  <img src="assets/readme/hero.svg" width="100%" alt="PDF Stitcher / PDF 拼图工具: 无需上传文件到服务器，完全在浏览器本地运行，安全快速。">
+</p>
+
+
 [在线使用 / Live demo](https://holynova.github.io/pdf2wechat/)
 
 ## 🇨🇳 中文介绍

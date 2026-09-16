@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">PDF Stitcher / PDF 拼图工具</title>
+  <desc id="desc">无需上传文件到服务器，完全在浏览器本地运行，安全快速。</desc>
+  <rect width="1200" height="360" rx="28" fill="#eef1f3"/>
+  <path d="M0 310C250 280 410 342 650 300s350-18 550 20v40H0Z" fill="#638fa7" opacity=".12"/>
+  <text x="58" y="52" fill="#d26e4d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2.5">PDF · STITCH · LONG IMAGE</text>
+  <path d="M58 70H710" stroke="#638fa7" stroke-width="2" opacity=".6"/>
+  <text x="58" y="126" fill="#1f2b35" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, sans-serif" font-size="52" font-weight="700">PDF Stitcher / PDF 拼图工具</text>
+  <text x="60" y="190" fill="#638fa7" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, sans-serif" font-size="21">无需上传文件到服务器，完全在浏览器本地运行，安全快速。</text>
+    <g transform="translate(60 244)"><rect width="250" height="34" rx="17" fill="#d26e4d"/><text x="18" y="23" fill="#eef1f3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">PROJECT-NATIVE README</text></g>
+  <g transform="translate(836 38)"><rect x="24" y="24" width="242" height="218" rx="12" fill="#638fa7" opacity=".55"/><rect width="242" height="218" rx="12" fill="#1f2b35"/><path d="M32 54h178M32 88h144M32 122h168M32 156h120" stroke="#638fa7" stroke-width="7" stroke-linecap="round"/><path d="M260 84h44v44M260 84l44 44M260 196h44v-44M260 196l44-44" fill="none" stroke="#d26e4d" stroke-width="6"/></g>
+</svg>
