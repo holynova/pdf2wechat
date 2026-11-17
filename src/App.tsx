@@ -130,7 +130,7 @@ export default function App() {
         controller.signal.aborted
           ? "已取消读取。"
           : e instanceof Error
-            ? e.message
+            ? (e.name === "PasswordException" ? "这份 PDF 需要密码，请先解锁后再导入。" : e.name === "InvalidPDFException" ? "无法读取这份 PDF，请检查文件是否完整。" : e.message)
             : "读取失败。",
       );
     } finally {
@@ -211,7 +211,7 @@ export default function App() {
           <span className="brand-icon">
             <Layers size={21} />
           </span>
-          纸间 <span className="brand-en">PDF STUDIO</span>
+          纸间 <span className="brand-en">PDF 图片工作台</span>
         </a>
         <div className="toplinks">
           <span className="local-dot">文件仅在本机处理</span>
@@ -227,7 +227,7 @@ export default function App() {
       <main>
         <section className="intro">
           <div>
-            <div className="eyebrow">FROM DOCUMENT TO SOMETHING SHAREABLE</div>
+            <div className="eyebrow">选择页面，编排成图</div>
             <h1>
               把一份文档，
               <br className="mobile-break" />
@@ -245,7 +245,7 @@ export default function App() {
         </section>
         <div className="workspace">
           <aside className="settings">
-            <div className="section-label">文档 / SOURCE</div>
+            <div className="section-label">文档</div>
             <input
               ref={input}
               type="file"
@@ -272,7 +272,7 @@ export default function App() {
               </span>
             </button>
             <fieldset disabled={!!busy}>
-              <div className="section-label spaced">输出 / COMPOSITION</div>
+              <div className="section-label spaced">输出设置</div>
               <label>
                 排列方向
                 <div className="segmented">
@@ -412,7 +412,7 @@ export default function App() {
             {(error || planError) && (
               <div role="alert" className="message error">
                 {error || planError}
-                <button onClick={() => setError("")} aria-label="关闭提示">
+                <button disabled={!error} onClick={() => setError("")} aria-label="关闭提示">
                   <X size={16} />
                 </button>
               </div>
@@ -421,12 +421,12 @@ export default function App() {
               <div className="progress" role="status">
                 <div>
                   <Loader2 className="spin" size={16} />
-                  {busy} · {progress}%
+                  {busy}{abort.current ? ` ${progress}%` : "…"}
                   {abort.current && (
                     <button onClick={() => abort.current?.abort()}>取消</button>
                   )}
                 </div>
-                <progress max={100} value={progress} />
+                <progress max={100} value={abort.current ? progress : undefined} />
               </div>
             )}
             {!doc && !busy ? (
@@ -434,7 +434,7 @@ export default function App() {
                 <div className="paper-demo">
                   <div className="demo-paper back" />
                   <div className="demo-paper front">
-                    <span>FIELD NOTES / 001</span>
+                    <span>文档摘录</span>
                     <h2>
                       留住
                       <br />
@@ -482,7 +482,7 @@ export default function App() {
                       onDragStart={() => setDrag(n)}
                       onDragOver={(e) => e.preventDefault()}
                       onDrop={() => {
-                        if (drag !== null && !busy) {
+                        if (drag !== null && drag !== n && !busy) {
                           const a = order.filter((x) => x !== drag);
                           a.splice(a.indexOf(n), 0, drag);
                           setOrder(a);
@@ -541,7 +541,7 @@ export default function App() {
                           <b>{String(i + 1).padStart(2, "0")}</b>
                           <span>第 {g.join("、")} 页</span>
                           <small>
-                            {d.width} × {d.height}
+                            {d.width.toLocaleString()} × {d.height.toLocaleString()} px
                           </small>
                         </div>
                       );
@@ -560,8 +560,8 @@ export default function App() {
                       <div>
                         <strong>图片 {String(i + 1).padStart(2, "0")}</strong>
                         <small>
-                          {r.width} × {r.height} ·{" "}
-                          {(r.blob.size / 1024 / 1024).toFixed(2)} MB
+                          {r.width.toLocaleString()} × {r.height.toLocaleString()} px，{" "}
+                          {(r.blob.size / 1024 / 1024).toFixed(2)} MiB
                         </small>
                       </div>
                       <button

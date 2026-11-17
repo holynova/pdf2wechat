@@ -4,7 +4,7 @@
 body {
   margin: 0;
   background: #f5f4ef;
-  color: #292f2d;
+  color: #52604a;
   font-family:
     Inter,
     -apple-system,
@@ -36,7 +36,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid #d5a24b;
+  outline: 3px solid #31594d;
   outline-offset: 3px;
 }
 a {
