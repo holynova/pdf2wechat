@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">纸间 PDF Studio — 把一份文档，变成值得分享的图片</title>
+  <desc id="desc">暖纸底标题：纸间 PDF Studio；右侧三页文档叠放，箭头指向一条拼好的长图，长图里是橙蓝绿三段页面。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#f7f5f0"/>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#31594d">PURE FRONTEND · PDF STUDIO</text>
+    <text x="56" y="128" font-size="54" font-weight="700" fill="#1f2a26">纸间 PDF Studio</text>
+    <text x="56" y="168" font-size="23" fill="#3d4a44">把一份文档，变成值得分享的图片</text>
+    <text x="56" y="204" font-size="19" fill="#5d6862">选页、排序、裁白边，PDF 拼成长图，全程本地运行。</text>
+    <g id="chips" font-size="18" fill="#3d4a44" text-anchor="middle">
+      <g><rect x="56" y="238" width="150" height="36" rx="18" fill="#ffffff" stroke="#ddd6c8" stroke-width="1.5"/><text x="131" y="262">纯前端零上传</text></g>
+      <g><rect x="218" y="238" width="196" height="36" rx="18" fill="#ffffff" stroke="#ddd6c8" stroke-width="1.5"/><text x="316" y="262">选页 · 排序 · 裁白边</text></g>
+      <g><rect x="426" y="238" width="126" height="36" rx="18" fill="#ffffff" stroke="#ddd6c8" stroke-width="1.5"/><text x="489" y="262">JPG / PNG</text></g>
+      <g><rect x="564" y="238" width="140" height="36" rx="18" fill="#ffffff" stroke="#ddd6c8" stroke-width="1.5"/><text x="634" y="262">ZIP 打包下载</text></g>
+    </g>
+  </g>
+
+  <g id="stitch">
+    <g id="pages">
+      <rect x="770" y="110" width="110" height="150" rx="6" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+      <rect x="790" y="90" width="110" height="150" rx="6" fill="#ffffff" stroke="#d8d2c4" stroke-width="1.5"/>
+      <rect x="810" y="70" width="110" height="150" rx="6" fill="#ffffff" stroke="#c9c2b0" stroke-width="1.5"/>
+      <g fill="#e8e2d4">
+        <rect x="826" y="90" width="78" height="8" rx="4"/>
+        <rect x="826" y="106" width="78" height="8" rx="4"/>
+        <rect x="826" y="122" width="52" height="8" rx="4"/>
+      </g>
+      <rect x="826" y="146" width="78" height="52" rx="4" fill="#e8a33d"/>
+    </g>
+    <g id="arrow" fill="#31594d">
+      <polygon points="936,150 936,138 968,146 936,154"/>
+      <rect x="928" y="143" width="14" height="6" rx="3"/>
+    </g>
+    <g id="long-image">
+      <rect x="990" y="50" width="110" height="260" rx="8" fill="#ffffff" stroke="#c9c2b0" stroke-width="1.5"/>
+      <rect x="998" y="58" width="94" height="70" rx="4" fill="#e8a33d"/>
+      <rect x="998" y="140" width="94" height="70" rx="4" fill="#4a90d9"/>
+      <rect x="998" y="222" width="94" height="70" rx="4" fill="#4caf7d"/>
+    </g>
+    <text x="935" y="336" font-size="18" fill="#5d6862" text-anchor="middle">3 页 → 1 张长图 · 1080 × 4624</text>
+  </g>
+</svg>
