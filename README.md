@@ -1,31 +1,31 @@
+<p align="right"><a href="README.en.md">English</a></p>
+
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="纸间 PDF Studio — 三页文档叠放，箭头指向一条拼好的长图，长图里是橙蓝绿三段页面">
 </p>
 
 <p align="center">
-  <a href="https://xiaosang.cc/pdf2wechat/">▶ 在线体验 Try Online</a>
+  <a href="https://xiaosang.cc/pdf2wechat/">▶ 在线体验</a>
   ·
   <a href="https://github.com/holynova/pdf2wechat">GitHub 仓库</a>
 </p>
 
 纸间 PDF Studio（pdf2wechat）是一个纯前端 PDF 转长图工具：在浏览器本地选页、排序、裁白边，把 PDF 拼成长图或一组清晰的卡片，方便分享到微信等社交平台。文件不上传服务器，全程本地处理。
 
-PDF Studio (pdf2wechat) is a pure-frontend PDF-to-long-image tool: pick pages, reorder them, trim whitespace, and stitch a PDF into long images or a set of crisp cards for sharing on WeChat and other social platforms — all in the browser, with no file upload.
-
-## 截图 / Screenshots
+## 截图
 
 <p align="center">
   <img src="./assets/readme/screenshot-v2-loaded.png" width="640" alt="v2 工作台：已导入 3 页 PDF，页面缩略图可勾选与拖动排序，左侧输出设置，分组预览 1080 × 4624">
   <img src="./assets/readme/screenshot-v2-output.png" width="640" alt="导出预览：3 页拼成 1 张长图图片 01（1080 × 4624，0.07 MB），可单张下载或下载全部 ZIP">
 </p>
 
-## 使用 / Usage
+## 使用
 
 1. **选择**：导入 PDF（最多 300 页），页面缩略图逐页呈现。
 2. **编排**：勾选需要的页面，拖动或用箭头按钮调整顺序；不需要的页面取消选择。
 3. **导出**：设置输出选项，点「生成图片」，预览后单张下载或打包 ZIP 下载。
 
-## 输出选项 / Output Options
+## 输出选项
 
 | 选项 | 可选值 | 默认 |
 |---|---|---|
@@ -40,7 +40,7 @@ PDF Studio (pdf2wechat) is a pure-frontend PDF-to-long-image tool: pick pages, r
 
 实测（本地构建）：3 页测试 PDF，默认设置生成 1 张 1080 × 4624 JPG（0.07 MB）。
 
-## 技术 / Tech
+## 技术
 
 - React 19 + Vite + TypeScript + Tailwind CSS 4；PDF 解码用 `pdfjs-dist`（Worker 本地打包，不依赖 CDN）。
 - 布局纯函数在 `src/workspace/layout.ts`（分组规划、尺寸计算、画布上限）；`src/workspace/engine.ts` 负责 PDF 解码、裁白边、导出与资源释放。
@@ -60,7 +60,7 @@ docs/REBUILD.md             v2 重做说明
 docs/VALIDATION.md          验收记录（2026-11-16）
 ```
 
-## 本地运行与测试 / Run Locally & Test
+## 本地运行与测试
 
 ```bash
 npm install
@@ -68,17 +68,3 @@ npm run dev      # Vite 开发服务器
 npm run build    # tsc + vite build，产物输出至 dist/
 npm test         # node --test，布局测试 3 个用例（本地实跑 3 通过）
 ```
-
-## English
-
-**PDF Studio** (pdf2wechat) is a pure-frontend PDF-to-long-image tool: pick pages, reorder them, trim whitespace, and stitch a PDF into long images or crisp cards for sharing — entirely in the browser, no upload.
-
-- **Workflow**: import a PDF (max 300 pages) → check the pages you want, drag or use arrow buttons to reorder → set output options → generate, preview, and download single images or a ZIP.
-- **Output options**: vertical long image or horizontal stitch; page width 750/1080/1600/2160 px (default 1080); max pages per image (default 3); gap none/20 px/48 px (default 20 px); auto-trim whitespace; JPG (smaller) or PNG (lossless). Groups auto-split at canvas limits (16,000 px max edge, 28 MP max pixels). Generation is cancellable; pages render and release canvases one by one.
-- **Measured locally**: a 3-page test PDF with defaults produced one 1080 × 4624 JPG (0.07 MB).
-- **Tech**: React 19 + Vite + TypeScript + Tailwind CSS 4; `pdfjs-dist` with a locally bundled worker; `jszip` + `file-saver` for ZIP downloads; `zustand` for state. Pure layout functions live in `src/workspace/layout.ts`; decoding, trimming, and export in `src/workspace/engine.ts`. The `src/components/` and `src/utils/pdfProcessor.ts` files are the v1 UI and are no longer used — the current `App.tsx` is the v2 workbench (see `docs/REBUILD.md`).
-- **Run & test**: `npm install && npm run dev`; `npm test` runs 3 layout tests (verified passing locally).
-
-## 许可 / License
-
-本仓库未附 LICENSE 文件，`package.json` 未声明 license。
